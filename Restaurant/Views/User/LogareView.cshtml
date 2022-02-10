@@ -1,0 +1,22 @@
+﻿<h2>Meniu logare</h2>
+<fieldset>
+    <legend>Meniu logare</legend>
+    @using (Ajax.BeginForm("LogareResult", "User",
+                    new AjaxOptions { UpdateTargetId = "divUser" }))
+    {
+        <div id="divUser"></div>
+        <ol>
+            @{
+                @Html.Label("Nume utilizator")
+                @Html.TextBox("txtUtilizator")
+                @Html.Label("Password")
+                @Html.TextBox("txtPassword")
+
+
+            }
+        </ol>
+        <button>Log in</button>
+    }
+</fieldset>
+
+

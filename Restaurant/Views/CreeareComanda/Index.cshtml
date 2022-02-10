@@ -1,0 +1,63 @@
+﻿@using Restaurant.Models;
+@using System.ComponentModel.DataAnnotations;
+@using Languages;
+@model IEnumerable<Restaurant.Models.MeniuModel>
+<h2>Creare Comanda</h2>
+<fieldset>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pret)
+            </th>
+        </tr>
+        @{
+            MeniuDbContext mdbctx = new MeniuDbContext();
+
+        }
+        @foreach (var item in mdbctx.Meniuri.ToList())
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nume)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pret)
+                </td>
+            </tr>
+        }
+
+    </table>
+    @using (Ajax.BeginForm("CalculateTotalResult", "CreeareComanda",
+                    new AjaxOptions { UpdateTargetId = "divComanda" }))
+    {
+        <div id="divComanda"></div>
+        <ol>
+            @{
+                <i>Scrieti doar numere intregi, pozitive, separate prin cate un spatiu</i>
+                <br />
+                @Html.Label("Id Meniu/Menu ID")
+                <br />
+                @Html.TextBox("txtMeniu")
+                <br />
+                <i>Scrieti doar numere intregi, pozitive, separate prin cate un spatiu</i><br />
+                @Html.Label("Nr Meniuri/Nr of Menus")<br />
+                @Html.TextBox("txtAmount")
+                <br />
+
+            }
+        </ol>
+        <button>Calculate</button>
+    }
+</fieldset>
+
+

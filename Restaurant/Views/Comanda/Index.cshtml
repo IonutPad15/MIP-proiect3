@@ -1,0 +1,62 @@
+﻿@using Restaurant.Models
+@model IEnumerable<Restaurant.Models.MeniuModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nume)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pret)
+        </th>
+        <th>Produse</th>
+    </tr>
+    
+    @foreach (var item in Model)
+    {
+<tr>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Nume)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Pret)
+    </td>
+    <td>
+        <table class="table">
+            @foreach (string idstring in item.Idproduse.Split(' '))
+            {
+                int idprodus = 0;
+                idprodus = int.Parse(idstring);
+                ProdusDbContext pdb = new ProdusDbContext();
+                ProdusModel Produs = pdb.Produse.SingleOrDefault(p1 => p1.Id == idprodus);
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => Produs.Nume)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Produs.Gramaj)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Produs.Cantitate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Produs.Unitate_masura)
+                    </td>
+                </tr>
+            }
+        </table>
+    </td>
+</tr>
+    }
+
+</table>
+

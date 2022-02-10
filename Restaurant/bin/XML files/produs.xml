@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<produse>
+	<produs>
+		<nume>Coca Cola</nume>
+		<masa>500</masa>
+		<udm>ml</udm>
+		<cantitate>1</cantitate>
+	</produs>
+	<produs>
+		<nume>Cartofi prajiti</nume>
+		<masa>250</masa>
+		<udm>g</udm>
+		<cantitate>1</cantitate>
+	</produs>
+	<produs>
+		<nume>Burger Maxi King</nume>
+		<masa>350</masa>
+		<udm>g</udm>
+		<cantitate>1</cantitate>
+	</produs>
+	<produs>
+		<nume>Aripioare picante</nume>
+		<masa>350</masa>
+		<udm>g</udm>
+		<cantitate>6</cantitate>
+	</produs>
+	<produs>
+		<nume>Ketchup picant</nume>
+		<masa>50</masa>
+		<udm>ml</udm>
+		<cantitate>1</cantitate>
+	</produs>
+	<produs>
+		<nume>Oua</nume>
+		<masa>35</masa>
+		<udm>g</udm>
+		<cantitate>3</cantitate>
+	</produs>
+	<produs>
+		<nume>Sunca</nume>
+		<masa>250</masa>
+		<udm>g</udm>
+		<cantitate>1</cantitate>
+	</produs>
+	<produs>
+		<nume>Rosii</nume>
+		<masa>50</masa>
+		<udm>g</udm>
+		<cantitate>1</cantitate>
+	</produs>
+	<produs>
+		<nume>Ardei picanti</nume>
+		<masa>30</masa>
+		<udm>g</udm>
+		<cantitate>1</cantitate>
+	</produs>
+</produse>

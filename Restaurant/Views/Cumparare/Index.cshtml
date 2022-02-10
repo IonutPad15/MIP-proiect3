@@ -1,0 +1,29 @@
+﻿@using Restaurant.Models
+@model Restaurant.Models.CumparareModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Creare Comanda</h2>
+<fieldset>
+    <legend>Creare Comanda</legend>
+    <div>@CumparareModel.Total</div>
+    @using (Ajax.BeginForm("TotalResult", "Cumparare",
+                    new AjaxOptions { UpdateTargetId = "divComanda" }))
+    {
+        <div id="divComanda"></div>
+        <ol>
+            @{
+                <i>Scrieti doar numere reale, pozitive</i>
+                <br />
+                @Html.Label("Suma")
+                <br />
+                @Html.TextBox("txtSuma")
+                <br />
+            }
+        </ol>
+        <button>Order</button>
+    }
+</fieldset>
+

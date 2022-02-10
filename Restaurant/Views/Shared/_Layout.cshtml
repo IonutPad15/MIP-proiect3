@@ -1,0 +1,68 @@
+﻿@using Restaurant.Controllers
+@using Restaurant.Models
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("The forest man", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Meniuri", "Index", "Comanda")</li>
+                    <li>@Html.ActionLink("Creare comanda", "Index", "CreeareComanda")</li>
+                    <li>@Html.ActionLink("Logare", "Index", "Logare")</li>
+                    <li>@Html.ActionLink("Logout", "Delogare", "Logare")</li>
+                    @if (UserController.iduser != 0)
+                    {
+                        <li>@Html.ActionLink("AdminMeniuri", "Index", "Meniu")</li>
+                        <li>@Html.ActionLink("AdminProduse", "Index", "Produs")</li>
+                        <li>@Html.ActionLink("AdminUsers", "Index", "User")</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    @{
+        foreach (var i in Languages.LanguageManager.AvailableLanguages)
+        {
+            @Html.ActionLink(i.LanguageName, "ChangeLanguage",
+        "Home", new { lang = i.LanguageCultureName }, null)<text> </text>
+    }
+    }
+    <br />
+    @if (UserController.iduser != 0)
+    {
+        UserDbContext udb = new UserDbContext();
+        UserModel user = udb.Users.SingleOrDefault(u => u.Id == UserController.iduser);
+        @Html.DisplayFor(modelItem => user.Username)
+    }
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

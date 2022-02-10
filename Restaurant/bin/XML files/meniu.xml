@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<meniuri>
+	<meniu>
+		<nume> Meniu Maxi</nume>
+		<pret> 16.5</pret>
+		<Idproduse>1 2 3</Idproduse>
+	</meniu>
+	<meniu>
+		<nume> Meniu Hot wings</nume>
+		<pret> 14.5</pret>
+		<Idproduse>2 4 5</Idproduse>
+	</meniu>
+	<meniu>
+		<nume> Omleta campionilor</nume>
+		<pret> 13.5</pret>
+		<Idproduse>6 7 8 9</Idproduse>
+	</meniu>
+</meniuri>
